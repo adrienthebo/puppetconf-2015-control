@@ -4,7 +4,8 @@ mod 'puppetlabs/ruby', '0.4.0'
 
 mod 'jfryman/nginx', '0.2.7'
 
-mod 'garethr/diamond', '1.0.0'
+mod 'garethr/diamond',
+  :git => "git://github.com/adrienthebo/garethr-diamond"
 
 mod 'puppetlabs/apt', '2.2.0' # deps: nginx
 mod 'puppetlabs/concat', '1.2.4' #deps: nginx
