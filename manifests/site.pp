@@ -73,4 +73,17 @@ node /lb1/ {
     install_from_pip => true,
     graphite_host    => "mon1",
   }
+
+  $collectors = [
+    "CPUCollector",
+    "DiskSpaceCollector",
+    "DiskUsageCollector",
+    "LoadAverageCollector",
+    "MemoryCollector",
+    "NetworkCollector",
+    "TCPCollector",
+  ]
+
+  diamond::collector { $collectors: }
+
 }
