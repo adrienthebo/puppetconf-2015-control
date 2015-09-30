@@ -43,6 +43,9 @@ node default {
 
 node /mon1/ {
   class { "graphite":
-    secret_key => "hunter2",
+    secret_key     => "hunter2",
+    gr_django_pkg      => 'django',
+    gr_django_ver      => '1.5',
+    gr_django_provider => 'pip',
   }
 }
