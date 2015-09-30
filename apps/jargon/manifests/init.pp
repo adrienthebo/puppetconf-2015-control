@@ -1,6 +1,8 @@
 class jargon {
 
   require "unicorn"
+  require "ruby::package::sinatra"
+  Package <| alias == 'ruby-sinatra' |>
 
   user { "jargon":
     ensure     => present,
