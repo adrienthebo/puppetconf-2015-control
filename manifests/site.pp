@@ -49,3 +49,7 @@ node /mon1/ {
     gr_django_provider => 'pip',
   }
 }
+
+node /app/ {
+  class { "jargon": }
+}
