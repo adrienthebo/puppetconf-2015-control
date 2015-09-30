@@ -4,6 +4,11 @@ class jargon {
   require "ruby::package::sinatra"
   Package <| alias == 'ruby-sinatra' |>
 
+  package { "sinatra-contrib":
+    ensure   => present,
+    provider => "gem",
+  }
+
   user { "jargon":
     ensure     => present,
     home       => "/srv/jargon",
