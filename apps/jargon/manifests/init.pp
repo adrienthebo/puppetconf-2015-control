@@ -1,0 +1,17 @@
+class jargon {
+
+  user { "jargon":
+    ensure     => present,
+    home       => "/srv/jargon",
+    managehome => true,
+    system     => true,
+  }
+
+  file { "/srv/jargon":
+    ensure  => present,
+    source  => "puppet:///modules/jargon/rb",
+    owner   => "jargon",
+    group   => "jargon",
+    recurse => true,
+  }
+}
