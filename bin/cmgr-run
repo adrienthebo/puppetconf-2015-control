@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+require 'colored'
+require 'benchmark'
+
+def get_branch
+  str = %x[git symbolic-ref HEAD]
+  if m = str.match(%r[refs/heads/(.*)])
+    m[1]
+  end
+end
+
+def action(msg, &block)
+  puts "Running action: #{msg}...".green
+  elapsed = Benchmark.realtime(&block)
+  puts ("Completed action #{msg} in %0.2f seconds" % elapsed).green
+end
+
+def deploy(env)
+  action("code deploy (#{env})") do
+    r10k_cmd = "r10k deploy environment #{env} -pv debug2 --color --trace"
+    puts %x[vagrant ssh master -c "sudo -i #{r10k_cmd}"]
+  end
+end
+
+def agent(machine, env)
+  action("run agent (#{machine})") do
+    puts %x[vagrant ssh #{machine} -c "sudo puppet agent -t --environment #{env}"]
+  end
+end
+
+env = get_branch
+agent = ARGV[0] || ENV["CMGR_AGENT"]
+
+if env.nil?
+  puts "Not in a branch - cannot deploy!".red
+  exit 1
+else
+  deploy(env)
+
+  if agent
+    agent(agent, env)
+  else
+    puts "No agent machine specified, skipping Puppet agent run.".yellow
+  end
+end
