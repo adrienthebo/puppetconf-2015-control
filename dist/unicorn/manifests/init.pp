@@ -1,6 +1,6 @@
 class unicorn {
 
-  require "buildenv::cpp"
+  require "ruby::dev"
 
   package { "unicorn":
     ensure   => present,
