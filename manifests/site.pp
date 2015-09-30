@@ -42,5 +42,7 @@ node default {
 }
 
 node /mon1/ {
-  class { "graphite": }
+  class { "graphite":
+    secret_key => "hunter2",
+  }
 }
