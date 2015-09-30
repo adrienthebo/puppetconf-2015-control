@@ -68,4 +68,9 @@ node /lb1/ {
   nginx::resource::vhost { 'app.puppetconf.demo':
     proxy => 'http://app-pool',
   }
+
+  class { "diamond":
+    install_from_pip => true,
+    graphite_host    => "mon1",
+  }
 }
