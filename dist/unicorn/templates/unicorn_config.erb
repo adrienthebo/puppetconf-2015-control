@@ -1,0 +1,6 @@
+listen <%= @port %>
+worker_processes 2
+working_directory "<%= @app_root %>"
+pid "<%= File.join(@app_root, "tmp", "unicorn.pid") %>"
+stderr_path "<%= File.join(@app_root, "log", "stderr.log") %>"
+stdout_path "<%= File.join(@app_root, "log", "stdout.log") %>"

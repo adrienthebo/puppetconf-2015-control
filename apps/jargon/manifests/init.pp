@@ -16,4 +16,10 @@ class jargon {
     group   => "jargon",
     recurse => true,
   }
+
+  unicorn::app { "jargon":
+    app_root => "/srv/jargon",
+    user     => "jargon",
+    group    => "jargon",
+  }
 }
