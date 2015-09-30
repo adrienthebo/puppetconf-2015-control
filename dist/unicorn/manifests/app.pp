@@ -5,6 +5,9 @@ define unicorn::app(
   $port = 8080,
   $config_template = "unicorn/unicorn_config.erb",
 ) {
+
+  require "unicorn"
+
   file { "${app_root}/unicorn_config.rb":
     ensure  => present,
     content => template($config_template),
