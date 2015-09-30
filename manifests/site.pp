@@ -41,3 +41,6 @@ node default {
   #   class { 'my_class': }
 }
 
+node /mon1/ {
+  class { "graphite": }
+}
