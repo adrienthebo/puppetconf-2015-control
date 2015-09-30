@@ -1,5 +1,7 @@
 class jargon {
 
+  require "unicorn"
+
   user { "jargon":
     ensure     => present,
     home       => "/srv/jargon",
