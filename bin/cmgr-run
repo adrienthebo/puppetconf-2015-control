@@ -30,7 +30,7 @@ def agent(machine, env)
 end
 
 env = get_branch
-agent = ARGV[0] || ENV["CMGR_AGENT"]
+agents = ARGV
 
 if env.nil?
   puts "Not in a branch - cannot deploy!".red
@@ -38,9 +38,9 @@ if env.nil?
 else
   deploy(env)
 
-  if agent
-    agent(agent, env)
+  if !agents.empty?
+    agents.each { |a| agent(a, env) }
   else
-    puts "No agent machine specified, skipping Puppet agent run.".yellow
+    puts "No agent machines specified, skipping Puppet agent run.".yellow
   end
 end
