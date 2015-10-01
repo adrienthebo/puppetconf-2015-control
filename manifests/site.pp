@@ -98,6 +98,15 @@ node /mon1/ {
 node /app/ {
   class { "jargon": }
   include profile::monitoring
+
+  class { "nodejs": } ->
+  class { 'statsd':
+    backends         => [ './backends/graphite'],
+    graphiteHost     => 'mon1.puppetconf.demo',
+    flushInterval    => 1000,
+    percentThreshold => [75, 90, 99],
+    address          => 'localhost',
+  }
 }
 
 node /lb1/ {
