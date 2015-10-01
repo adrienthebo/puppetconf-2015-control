@@ -96,6 +96,7 @@ node /lb1/ {
     install_from_pip => true,
     graphite_host    => "mon1",
     interval         => 10,
+    logger_level     => "DEBUG",
   }
 
   $collectors = [
