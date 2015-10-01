@@ -7,6 +7,12 @@ class jargon {
     provider => "gem",
   }
 
+  # monitoring
+  package { ["lookout-statsd", "rack-graphite"]:
+    ensure   => present,
+    provider => "gem",
+  }
+
   user { "jargon":
     ensure     => present,
     home       => "/srv/jargon",

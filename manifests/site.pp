@@ -105,7 +105,6 @@ node /app/ {
     graphiteHost     => 'mon1.puppetconf.demo',
     flushInterval    => 1000,
     percentThreshold => [75, 90, 99],
-    address          => 'localhost',
   }
 }
 
