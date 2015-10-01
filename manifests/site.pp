@@ -56,7 +56,7 @@ node /mon1/ {
       {
         name       => 'diamond',
         pattern    => '^servers\.',
-        retentions => '30s:30m,1m:1d,5m:2y'
+        retentions => '1m:14d',
       },
       {
         name       => 'default',
