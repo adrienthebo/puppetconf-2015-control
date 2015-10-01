@@ -43,10 +43,27 @@ node default {
 
 node /mon1/ {
   class { "graphite":
-    secret_key     => "hunter2",
+    secret_key         => "hunter2",
     gr_django_pkg      => 'django',
     gr_django_ver      => '1.5',
     gr_django_provider => 'pip',
+    gr_storage_schemas => [
+      {
+        name       => 'carbon',
+        pattern    => '^carbon\.',
+        retentions => '1m:90d'
+      },
+      {
+        name       => 'diamond',
+        pattern    => '^servers\.',
+        retentions => '1m:30m,1m:1d,5m:2y'
+      },
+      {
+        name       => 'default',
+        pattern    => '.*',
+        retentions => '10s:30m,1m:1d,5m:2y'
+      }
+    ]
   }
 }
 
