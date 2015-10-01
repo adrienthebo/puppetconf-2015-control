@@ -69,7 +69,8 @@ node /mon1/ {
       '01_max'         => { pattern => '\.max$',   factor => '0.1', method => 'max' },
       '02_sum'         => { pattern => '\.count$', factor => '0.1', method => 'sum' },
       '99_default_avg' => { pattern => '.*',       factor => '0.1', method => 'average'}
-    }
+    },
+    gr_timezone => 'America/Los_Angeles',
   }
 }
 
