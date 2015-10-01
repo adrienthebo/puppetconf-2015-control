@@ -86,4 +86,10 @@ node /lb1/ {
 
   diamond::collector { $collectors: }
 
+  # todo pip pyyaml
+  diamond::collector { "PuppetAgentCollector":
+    options       => {
+      'yaml_path' => '/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml'
+    }
+  }
 }
