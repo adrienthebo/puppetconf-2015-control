@@ -72,6 +72,10 @@ node /mon1/ {
     },
     gr_timezone => 'America/Los_Angeles',
   }
+
+  class { "grafana":
+    install_method => "repo",
+  }
 }
 
 node /app/ {
