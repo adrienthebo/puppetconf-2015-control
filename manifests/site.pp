@@ -72,6 +72,7 @@ node /lb1/ {
   class { "diamond":
     install_from_pip => true,
     graphite_host    => "mon1",
+    interval         => 10,
   }
 
   $collectors = [
