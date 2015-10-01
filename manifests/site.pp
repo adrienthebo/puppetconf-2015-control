@@ -76,10 +76,13 @@ node /mon1/ {
 
 node /app/ {
   class { "jargon": }
+  include profile::monitoring
 }
 
 node /lb1/ {
   include nginx
+
+  include profile::monitoring
 
   nginx::resource::upstream { 'app-pool':
     members => [
@@ -92,25 +95,6 @@ node /lb1/ {
   nginx::resource::vhost { 'app.puppetconf.demo':
     proxy => 'http://app-pool',
   }
-
-  class { "diamond":
-    install_from_pip => true,
-    graphite_host    => "mon1",
-    interval         => 10,
-    logger_level     => "DEBUG",
-  }
-
-  $collectors = [
-    "CPUCollector",
-    "DiskSpaceCollector",
-    "DiskUsageCollector",
-    "LoadAverageCollector",
-    "MemoryCollector",
-    "NetworkCollector",
-    "TCPCollector",
-  ]
-
-  diamond::collector { $collectors: }
 
   # todo pip pyyaml
   diamond::collector { "PuppetAgentCollector":
