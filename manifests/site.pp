@@ -42,8 +42,7 @@ node default {
 }
 
 node /mon1/ {
-  include profile::monitoring::graphite
-  include profile::monitoring::grafana
+  include role::monitoring::server
 }
 
 node /app/ {
