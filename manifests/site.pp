@@ -47,12 +47,14 @@ node /mon1/ {
 }
 
 node /app/ {
+  include profile::production
+
   include profile::apps::jargon::web
-  include profile::monitoring::diamond
   include profile::monitoring::statsd
 }
 
 node /lb1/ {
+  include profile::production
+
   include profile::apps::jargon::loadbalancer
-  include profile::monitoring::diamond
 }
