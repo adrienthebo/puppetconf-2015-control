@@ -96,7 +96,7 @@ node /mon1/ {
 }
 
 node /app/ {
-  class { "jargon": }
+  include profile::apps::jargon::appserver
   include profile::monitoring
 
   class { "nodejs": } ->
