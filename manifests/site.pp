@@ -41,6 +41,10 @@ node default {
   #   class { 'my_class': }
 }
 
+node /master/ {
+  include profile::production
+}
+
 node /mon1/ {
   include role::monitoring::server
 }
