@@ -98,14 +98,8 @@ node /mon1/ {
 node /app/ {
   include profile::apps::jargon::appserver
   include profile::monitoring
+  include profile::monitoring::statsd
 
-  class { "nodejs": } ->
-  class { 'statsd':
-    backends         => [ './backends/graphite'],
-    graphiteHost     => 'mon1.puppetconf.demo',
-    flushInterval    => 1000,
-    percentThreshold => [75, 90, 99],
-  }
 }
 
 node /lb1/ {
