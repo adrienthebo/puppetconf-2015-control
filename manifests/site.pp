@@ -97,11 +97,11 @@ node /mon1/ {
 
 node /app/ {
   include profile::apps::jargon::web
-  include profile::monitoring
+  include profile::monitoring::diamond
   include profile::monitoring::statsd
 }
 
 node /lb1/ {
   include profile::apps::jargon::loadbalancer
-  include profile::monitoring
+  include profile::monitoring::diamond
 }

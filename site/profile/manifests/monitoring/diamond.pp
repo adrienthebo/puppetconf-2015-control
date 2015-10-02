@@ -1,4 +1,4 @@
-class profile::monitoring {
+class profile::monitoring::diamond {
 
   class { "diamond":
     install_from_pip => true,
@@ -18,5 +18,4 @@ class profile::monitoring {
   ]
 
   diamond::collector { $collectors: }
-
 }
