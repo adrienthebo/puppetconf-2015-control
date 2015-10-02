@@ -104,11 +104,4 @@ node /app/ {
 node /lb1/ {
   include profile::apps::jargon::loadbalancer
   include profile::monitoring
-
-  # todo pip pyyaml
-  diamond::collector { "PuppetAgentCollector":
-    options       => {
-      'yaml_path' => '/opt/puppetlabs/puppet/cache/state/last_run_summary.yaml'
-    }
-  }
 }
