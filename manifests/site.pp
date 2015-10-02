@@ -47,14 +47,9 @@ node /mon1/ {
 }
 
 node /app/ {
-  include profile::production
-
-  include profile::apps::jargon::web
-  include profile::monitoring::statsd
+  include role::apps::jargon::appserver
 }
 
 node /lb1/ {
-  include profile::production
-
-  include profile::apps::jargon::loadbalancer
+  include role::apps::jargon::loadbalancer
 }
