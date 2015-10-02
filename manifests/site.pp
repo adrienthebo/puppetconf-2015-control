@@ -96,10 +96,9 @@ node /mon1/ {
 }
 
 node /app/ {
-  include profile::apps::jargon::appserver
+  include profile::apps::jargon::web
   include profile::monitoring
   include profile::monitoring::statsd
-
 }
 
 node /lb1/ {
