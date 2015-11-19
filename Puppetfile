@@ -19,3 +19,4 @@ mod 'garethr/docker', '4.1.1' # deps: grafana
 mod 'maestrodev/wget', '1.7.1' # deps: grafana
 mod 'puppet/nodejs', '1.2.0' # deps: statsd
 mod 'treydock/gpg_key', '0.0.3' # deps: nodejs
+mod 'stahnma/epel', '1.1.1' # deps: diamond
