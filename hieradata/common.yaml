@@ -1,0 +1,2 @@
+---
+puppet_enterprise::master::code_manager::deploy_pool_size: 4
